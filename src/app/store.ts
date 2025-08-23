@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import dataSlice from "../features/pizza/dataSlice";
 
 export const store = configureStore({
-   reducer: {},
+   reducer: {
+      data: dataSlice,
+   },
 });
 
 // Типи для TS
