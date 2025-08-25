@@ -2,9 +2,13 @@ import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 // import { addToCart } from "../redux/slices/cartSlice";
 import { useDispatch } from "react-redux";
+import type { PizzaDataType } from "../../app/types";
 
-function PizzaCard({ pizzaData }) {
-   // console.log(pizzaData);
+type PizzaCardProps = {
+   pizzaData: PizzaDataType;
+};
+
+function PizzaCard({ pizzaData }: PizzaCardProps) {
    const { id, imageUrl, name, sizes, price, rating, types, quantity } =
       pizzaData;
    const [sizeOption, setSizeOption] = useState(sizes[0]);

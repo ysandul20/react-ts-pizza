@@ -1,19 +1,19 @@
 import { useEffect } from "react";
 import PizzaCard from "./PizzaCard";
 import PizzaSkeleton from "../loaders/PizzaCardSkeleton";
-import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../features/pizza/dataSlice";
 import { useSearchParams } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
 function PizzaList() {
    //TODO: Sort and filtering
    const [searchParams] = useSearchParams();
-   const filterValue = searchParams.get("category") || 0;
+   const filterValue = searchParams.get("category") ?? "0";
    const sortValue = searchParams.get("sortBy") || "rating desc";
 
    //TODO: Pizzas data
-   const dispatch = useDispatch();
-   const { pizzas, isLoading, error } = useSelector((state) => state.data);
+   const dispatch = useAppDispatch();
+   const { pizzas, isLoading, error } = useAppSelector((state) => state.data);
    console.log(pizzas, isLoading, error);
 
    //TODO: Search field functional
@@ -21,7 +21,7 @@ function PizzaList() {
 
    useEffect(() => {
       const [value, order] = sortValue.split(" ");
-      const filterQuery = +filterValue !== 0 ? `category=${filterValue}` : "";
+      const filterQuery = filterValue !== "0" ? `category=${filterValue}` : "";
       const sortQuery = `sortBy=${value}&order=${order}`;
       dispatch(fetchData({ filterQuery, sortQuery }));
    }, [dispatch, filterValue, sortValue]);

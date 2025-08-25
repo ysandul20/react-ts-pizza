@@ -3,10 +3,10 @@ import { useSearchParams } from "react-router-dom";
 function PizzaCategories() {
    const [searchParams, setSearchParams] = useSearchParams();
 
-   const currentCategoryParam = searchParams.get("category") || 0;
-   // console.log("currentCategoryParam", +currentCategoryParam);
+   // const currentCategoryParam = searchParams.get("category") || 0;
+   const currentCategoryParam: string = searchParams.get("category") ?? "0";
 
-   function changeGategoryParam(value) {
+   function changeGategoryParam(value: string) {
       const newParams = new URLSearchParams(searchParams);
       newParams.set("category", value);
       setSearchParams(newParams);
@@ -27,7 +27,7 @@ function PizzaCategories() {
                   key={category}
                   className={+currentCategoryParam === index ? "active" : ""}
                   onClick={() => {
-                     changeGategoryParam(index);
+                     changeGategoryParam(index.toString());
                   }}
                >
                   {category}
