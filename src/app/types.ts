@@ -12,6 +12,7 @@ export type PizzaDataType = {
 
 export type CartItemType = {
   id: number;
+  compositeId: string;
   imageUrl: string;
   name: string;
   price: number;

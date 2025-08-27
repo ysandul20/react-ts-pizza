@@ -5,6 +5,21 @@ import type { PizzaDataType } from "../../app/types";
 import { useAppDispatch } from "../../app/hooks";
 import { addToCart } from "../../features/cart/cartSlice";
 
+const createCombinedId = (id: number, sizeOption: number, typeOption: number) => {
+  return `${id.toString()}_${sizeOption.toString()}_${typeOption.toString()}`;
+};
+const calculatePizzaPriceByType = (price: number, type: string, types: number[]) => {
+  if (types.length === 1) return price;
+  else return type === "thin" ? price : price + 1;
+};
+const calculatePizzaPriceBySize = (price: number, size: number) => {
+  if (size === 26) return price;
+  else if (size === 30) return price + 3;
+  else return price + 6;
+};
+
+const typeVariations = ["thin", "classic"];
+
 type PizzaCardProps = {
   pizzaData: PizzaDataType;
 };
@@ -13,10 +28,13 @@ function PizzaCard({ pizzaData }: PizzaCardProps) {
   const { id, imageUrl, name, sizes, price, rating, types, quantity } = pizzaData;
   const [sizeOption, setSizeOption] = useState(sizes[0]);
   const [typeOption, setTypeOption] = useState(types[0]);
+  // const [currentPrice, setCurrentPrice] = useState(price);
+  // console.log("current size option", sizeOption);
+  const priceWithType = calculatePizzaPriceByType(price, typeVariations[typeOption], types);
+  const finalPrice = calculatePizzaPriceBySize(priceWithType, sizeOption);
 
   const dispatch = useAppDispatch();
 
-  const typeVariations = ["thin", "classic"];
   return (
     <div className="pizza-block">
       <img src={`src/assets/images/${imageUrl}`} alt="Pizza" className="pizza-block__image" />
@@ -38,13 +56,26 @@ function PizzaCard({ pizzaData }: PizzaCardProps) {
           ))}
         </ul>
       </div>
+      <div className="">Current price: {finalPrice} $</div>
       <div className="pizza-block__bottom">
         <div className="pizza-block__price">from {price} $</div>
         <button
           className="button button--outline button--add"
           onClick={() => {
             console.log("click");
-            dispatch(addToCart({ id, imageUrl, name, price, totalPrice: price, sizeOption, typeOption, quantity }));
+            dispatch(
+              addToCart({
+                id,
+                compositeId: createCombinedId(id, sizeOption, typeOption),
+                imageUrl,
+                name,
+                price: finalPrice,
+                totalPrice: finalPrice,
+                sizeOption,
+                typeOption,
+                quantity,
+              })
+            );
           }}
         >
           <FaPlus />

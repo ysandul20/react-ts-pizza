@@ -21,7 +21,7 @@ function Cart() {
   const cartItems = useAppSelector((state) => state.cart.items);
   const cartItemsQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const cartItemsPrice = cartItems.reduce((sum, item) => sum + item.totalPrice, 0);
-
+  console.log("cartItems", cartItems);
   const dispatch = useAppDispatch();
 
   return (
@@ -51,7 +51,7 @@ function Cart() {
             </div>
             <div className="content__items">
               {cartItems.map((cartItem) => (
-                <CartItem key={cartItem.id} cartItemData={cartItem} />
+                <CartItem key={cartItem.compositeId} cartItemData={cartItem} />
               ))}
             </div>
 

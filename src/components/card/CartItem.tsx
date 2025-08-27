@@ -1,6 +1,5 @@
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
 import { IoIosCloseCircle } from "react-icons/io";
-import { useDispatch } from "react-redux";
 // import { addToCart, deleteFromCart } from "../redux/slices/cartSlice";
 import type { CartItemType } from "../../app/types";
 import { useAppDispatch } from "../../app/hooks";
@@ -28,7 +27,7 @@ function CartItem({ cartItemData }: CartItemProps) {
       </div>
       //TODO: ЗАМІНИТИ TAILWIND
       <div className="cart__item-count">
-        <button onClick={() => dispatch(deleteFromCart({ id }))}>
+        <button onClick={() => dispatch(deleteFromCart(cartItemData))}>
           <CiCircleMinus className="text-orange-500 w-8 h-8" />
         </button>
         <span>{quantity}</span>
@@ -39,7 +38,7 @@ function CartItem({ cartItemData }: CartItemProps) {
       <div className="cart__item-price">
         <b>{totalPrice} $</b>
       </div>
-      <button className="cart__item-remove" onClick={() => dispatch(deleteFromCart({ id }))}>
+      <button className="cart__item-remove" onClick={() => dispatch(deleteFromCart(cartItemData))}>
         <IoIosCloseCircle size={30} className="rotate-45" />
       </button>
     </div>
