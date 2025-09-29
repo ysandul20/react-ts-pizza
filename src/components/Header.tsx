@@ -7,11 +7,11 @@ import CartBtn from "./card/CartBtn";
 
 function Header() {
   return (
-    <div className="header">
+    <header className="header">
       <div className="container">
         <Link to="/">
           <div className="header__logo">
-            <img width="38" src="pizza-logo.svg" alt="Pizza logo" />
+            <img width="38" src="/pizza-logo.svg" alt="Pizza logo" />
             <div>
               <h1>React Pizza</h1>
               <p>
@@ -28,7 +28,7 @@ function Header() {
                <IoMenu className="w-8 h-8" />
             </span> */}
       </div>
-    </div>
+    </header>
   );
 }
 

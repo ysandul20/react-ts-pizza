@@ -4,7 +4,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import CartItem from "../components/card/CartItem";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { cleanCart } from "../features/cart/cartSlice";
-
+import { SlClose } from "react-icons/sl";
 // const fakeOrdersData = [
 //   {
 //     id: 111,
@@ -27,8 +27,8 @@ function Cart() {
   return (
     <div className="container--cart">
       <div className="cart">
-        <Link to="/" className="button button--outline ">
-          Go back
+        <Link to="/" className="cart__button-close">
+          <SlClose />
         </Link>
         {cartItems.length === 0 && (
           <div>

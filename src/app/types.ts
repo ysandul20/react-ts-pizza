@@ -8,6 +8,7 @@ export type PizzaDataType = {
   types: number[];
   quantity: number;
   category: number;
+  ingredients: string[];
 };
 
 export type CartItemType = {
@@ -20,4 +21,5 @@ export type CartItemType = {
   sizeOption: number;
   typeOption: number;
   quantity: number;
+  ingredients?: string[];
 };
