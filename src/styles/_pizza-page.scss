@@ -49,6 +49,9 @@
     max-width: 440px;
     padding: 40px;
     flex: 1;
+    @media (max-width: 500px) {
+      padding: 20px;
+    }
     h1 {
       font-size: 36px;
       color: #333;

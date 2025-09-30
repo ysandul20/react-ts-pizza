@@ -16,30 +16,29 @@ function CartItem({ cartItemData }: CartItemProps) {
   const typeVariations = ["thin", "classic"];
   return (
     <div className="cart__item">
-      <div className="cart__item-img">
-        <img className="pizza-block__image" src={`src/assets/images/${imageUrl}`} alt="Pizza" />
+      <div className="cart__item-description">
+        <div className="cart__item-img">
+          <img className="pizza-block__image" src={`src/assets/images/${imageUrl}`} alt="Pizza" />
+        </div>
+        <div className="cart__item-info">
+          <h3>{name}</h3>
+          <p>
+            {typeVariations[typeOption]}, {sizeOption} sm.
+          </p>
+        </div>
       </div>
-      <div className="cart__item-info">
-        <h3>{name}</h3>
-        <p>
-          {typeVariations[typeOption]}, {sizeOption} sm.
-        </p>
-      </div>
-      //TODO: ЗАМІНИТИ TAILWIND
       <div className="cart__item-count">
         <button onClick={() => dispatch(deleteFromCart(cartItemData))}>
-          <CiCircleMinus className="text-orange-500 w-8 h-8" />
+          <CiCircleMinus className="button--circle" />
         </button>
         <span>{quantity}</span>
         <button onClick={() => dispatch(addToCart(cartItemData))}>
-          <CiCirclePlus className="text-orange-500 w-8 h-8" />
+          <CiCirclePlus className="button--circle" />
         </button>
       </div>
-      <div className="cart__item-price">
-        <b>{totalPrice} $</b>
-      </div>
+      <div className="cart__item-price">{totalPrice} $</div>
       <button className="cart__item-remove" onClick={() => dispatch(deleteFromCart(cartItemData))}>
-        <IoIosCloseCircle size={30} className="rotate-45" />
+        <IoIosCloseCircle size={30} />
       </button>
     </div>
   );
