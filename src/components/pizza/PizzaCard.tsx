@@ -85,7 +85,7 @@ function PizzaCard({ pizzaData }: PizzaCardProps) {
         >
           Add to cart
         </ButttonAddToCart> */}
-        <ButtonAddToCart onClick={() => navigate(`pizza/${id}`)}>Add to cart</ButtonAddToCart>
+        <ButtonAddToCart onClick={() => navigate(`pizza/${id}/${sizes[0]}/${types[0]}`)}>Add to cart</ButtonAddToCart>
       </div>
     </div>
   );
