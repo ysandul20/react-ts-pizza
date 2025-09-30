@@ -7,6 +7,7 @@ type CartStateType = {
   active: boolean;
 };
 
+const cartItemsFromStorage = localStorage.getItem("cart");
 const initialState: CartStateType = {
   // items: [
   //   {
@@ -21,7 +22,7 @@ const initialState: CartStateType = {
   //     imageUrl: "pizza_4.png",
   //   },
   // ],
-  items: [],
+  items: cartItemsFromStorage ? JSON.parse(cartItemsFromStorage) : [],
   active: false,
 };
 
@@ -36,6 +37,7 @@ export const cartSlice = createSlice({
         existingItem.quantity += 1;
         existingItem.totalPrice = existingItem.price * existingItem.quantity;
       } else state.items.push(action.payload);
+      localStorage.setItem("cart", JSON.stringify(state.items));
     },
     deleteFromCart: (state, action: PayloadAction<CartItemType>) => {
       const currentItem = state.items.find((item) => item.compositeId === action.payload.compositeId);
@@ -45,13 +47,14 @@ export const cartSlice = createSlice({
         currentItem.quantity -= 1;
         currentItem.totalPrice -= currentItem.price;
       } else {
-        //TODO: Виправити видалення піцц з різними розмірами
-        console.log("delete", action.payload.compositeId);
+        // console.log("delete", action.payload.compositeId);
         state.items = state.items.filter((item) => item.compositeId !== action.payload.compositeId);
       }
+      localStorage.setItem("cart", JSON.stringify(state.items));
     },
     cleanCart: (state) => {
       state.items = [];
+      localStorage.removeItem("cart");
     },
   },
 });

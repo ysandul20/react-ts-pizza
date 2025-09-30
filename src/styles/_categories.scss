@@ -1,32 +1,32 @@
 @use "variables";
 
 .categories {
-   ul {
-      display: flex;
-      // align-items: center;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
+  ul {
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 
-      li {
-         background-color: #f9f9f9;
-         padding: 13px 30px;
-         border-radius: 30px;
-         // margin-right: 10px;
-         font-weight: bold;
-         cursor: pointer;
-         transition: background-color 0.1s ease-in-out;
-         //  @include noselect();
+    li {
+      background-color: #efefef;
+      padding: 13px 30px;
+      border-radius: 30px;
+      // margin-right: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.1s ease-in-out;
+      //  @include noselect();
 
-         &:hover,
-         :active {
-            background-color: #e4e4e4;
-         }
-
-         &.active {
-            background-color: #282828;
-            color: #fff;
-         }
+      &:hover,
+      :active {
+        background-color: #e4e4e4;
       }
-   }
+
+      &.active {
+        background-color: #282828;
+        color: #fff;
+      }
+    }
+  }
 }
