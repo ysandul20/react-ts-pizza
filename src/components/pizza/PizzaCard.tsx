@@ -46,7 +46,7 @@ function PizzaCard({ pizzaData }: PizzaCardProps) {
           src={`src/assets/images/${imageUrl}`}
           alt="Pizza"
           className="pizza-block__image"
-          onClick={() => navigate(`pizza/${id}`)}
+          onClick={() => navigate(`pizza/${id}/${sizes[0]}/${types[0]}`)}
         />
         <h3 className="pizza-block__rating">{rating}</h3>
       </div>

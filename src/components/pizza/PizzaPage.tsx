@@ -24,13 +24,21 @@ const calculatePizzaPriceBySize = (price: number, size: number) => {
 const typeLabels = ["thin", "classic"];
 
 function PizzaPage() {
-  const { id } = useParams<{ id: string }>();
+  const { id, type, size } = useParams<{ id: string; type: string; size: string }>() as {
+    id: string;
+    type: string;
+    size: string;
+  };
+  const allParams = useParams();
+  console.log("all params", allParams);
   const dispatch = useAppDispatch();
   const { pizzas, isLoading } = useAppSelector((state) => state.data);
   const currentPizza = pizzas.find((pizza) => pizza.id === Number(id!));
 
-  const [sizeOption, setSizeOption] = useState(currentPizza?.sizes[0] ?? 26);
-  const [typeOption, setTypeOption] = useState(currentPizza?.types[0] ?? 0);
+  const [typeOption, setTypeOption] = useState(+type);
+  const [sizeOption, setSizeOption] = useState(+size);
+  // const [typeOption, setTypeOption] = useState(currentPizza?.types[0] ?? 0);
+  // const [sizeOption, setSizeOption] = useState(currentPizza?.sizes[0] ?? 26);
 
   useEffect(() => {
     dispatch(fetchData({ filterQuery: "", sortQuery: "" }));

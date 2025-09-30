@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import CartBtn from "./card/CartBtn";
+import CartBtn from "../card/CartBtn";
 // import CartBtn from "./CartBtn";
 // import SearchInput from "./SearchInput";
 

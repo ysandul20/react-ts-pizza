@@ -8,20 +8,20 @@ type CartStateType = {
 };
 
 const initialState: CartStateType = {
-  items: [
-    {
-      id: 1123,
-      compositeId: "1123_26_1",
-      name: "default",
-      price: 44,
-      quantity: 1,
-      totalPrice: 20,
-      sizeOption: 26,
-      typeOption: 0,
-      imageUrl: "pizza_4.png",
-    },
-  ],
-  // items: [],
+  // items: [
+  //   {
+  //     id: 1123,
+  //     compositeId: "1123_26_1",
+  //     name: "default",
+  //     price: 44,
+  //     quantity: 1,
+  //     totalPrice: 20,
+  //     sizeOption: 26,
+  //     typeOption: 0,
+  //     imageUrl: "pizza_4.png",
+  //   },
+  // ],
+  items: [],
   active: false,
 };
 

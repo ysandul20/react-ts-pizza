@@ -60,33 +60,13 @@ function Cart() {
                 <CartItem key={cartItem.compositeId} cartItemData={cartItem} />
               ))}
             </div>
-
-            {/* <div className="cart__bottom">
-              <div className="cart__bottom-details">
-                <span>
-                  Total pizzas: <b>{cartItemsQuantity} pcs.</b>
-                </span>
-                <span>
-                  Order amount: <b>{cartItemsPrice} $</b>
-                </span>
-              </div>
-              <div className="cart__bottom-buttons">
-                <div className="button pay-btn">
-                  <span>Pay now</span>
-                </div>
-                <button className="cart__clear" onClick={() => dispatch(cleanCart())}>
-                  <FaTrashAlt />
-                  <span>Clean cart</span>
-                </button>
-              </div>
-            </div> */}
             <div className="cart-footer">
               <div className="cart-footer__info">
                 <p>
                   You have <b>{cartItemsQuantity} pizzas</b> in your cart with a total amount of{" "}
                   <b>{cartItemsPrice} $</b>.
                 </p>
-                <span className="cart-footer__hint">🚚 Free delivery on orders over 500 $</span>
+                <span className="cart-footer__hint">🚚 Free delivery on orders over 100 $</span>
               </div>
 
               <div className="cart-footer__buttons">
@@ -98,42 +78,6 @@ function Cart() {
                 </ButtonFullfilled>
               </div>
             </div>
-            {/* <div className="cart__summary">
-                <div className="cart__summary-text">
-                  <span>
-                    Total pizzas: <b>{cartItemsQuantity} pcs.</b>
-                  </span>
-                  <span>
-                    Order amount: <b>{cartItemsPrice} $</b>
-                  </span>
-                </div>
-                <div className="cart__summary-buttons">
-                  <button className="btn btn--clear" onClick={() => dispatch(cleanCart())}>
-                    Clear Cart
-                  </button>
-                  <button className="btn btn--pay">Pay Now</button>
-                </div>
-              </div> */}
-            {/* <div class="order-summary-minimal">
-              {" "}
-              <h2>Order Summary</h2>{" "}
-              <div class="order-details">
-                {" "}
-                <div>
-                  {" "}
-                  <span class="label">Total Pizzas</span> <span class="value">4 pcs.</span>{" "}
-                </div>{" "}
-                <div>
-                  {" "}
-                  <span class="label">Order Amount</span> <span class="value price">$102</span>{" "}
-                </div>{" "}
-              </div>{" "}
-              <p class="note">* Delivery cost is not included.</p>{" "}
-              <div class="buttons">
-                {" "}
-                <button class="checkout-btn">Proceed to Payment</button> <button class="clean-btn">Clean Cart</button>{" "}
-              </div>{" "}
-            </div> */}
           </>
         )}
       </div>

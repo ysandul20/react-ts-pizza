@@ -20,7 +20,8 @@ function App() {
       {/* <Route path="/" element={<TestPage />} /> */}
       <Route path="/" element={<AppLayout />}>
         <Route index element={<Home />} />
-        <Route path="pizza/:id" element={<PizzaPage />} />
+        {/* <Route path="pizza/:id" element={<PizzaPage />} /> */}
+        <Route path="pizza/:id/:size/:type" element={<PizzaPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
       <Route path="cart" element={<CartLayout />} />

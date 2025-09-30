@@ -4,6 +4,7 @@ import { IoIosCloseCircle } from "react-icons/io";
 import type { CartItemType } from "../../app/types";
 import { useAppDispatch } from "../../app/hooks";
 import { addToCart, deleteFromCart } from "../../features/cart/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 type CartItemProps = {
   cartItemData: CartItemType;
@@ -11,12 +12,13 @@ type CartItemProps = {
 
 function CartItem({ cartItemData }: CartItemProps) {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const { id, imageUrl, name, sizeOption, typeOption, totalPrice, quantity } = cartItemData;
   const typeVariations = ["thin", "classic"];
   return (
     <div className="cart__item">
-      <div className="cart__item-description">
+      <div className="cart__item-description" onClick={() => navigate(`/pizza/${id}/${sizeOption}/${typeOption}`)}>
         <div className="cart__item-img">
           <img className="pizza-block__image" src={`src/assets/images/${imageUrl}`} alt="Pizza" />
         </div>
