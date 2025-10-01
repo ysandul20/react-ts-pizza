@@ -37,7 +37,12 @@ function PizzaList() {
       </div>
     );
 
-  if (error) return <div className="content__items">{error}</div>;
+  if (error)
+    return (
+      <div className="content__items">
+        <p>{error}</p>
+      </div>
+    );
 
   //  const filteredBySearchPizzaArr = pizzas.filter((item) =>
   //     item.name.toLowerCase().includes(searchValue.toLowerCase())

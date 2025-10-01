@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { fetchData } from "../../features/pizza/dataSlice";
 import PizzaVariantSelector from "../ui/PizzaVariantSelector";
 import Loader from "../loaders/Loader";
-import { FaPlus } from "react-icons/fa6";
 import { addToCart } from "../../features/cart/cartSlice";
 
 const createCombinedId = (id: number, sizeOption: number, typeOption: number) => {
@@ -29,16 +28,19 @@ function PizzaPage() {
     type: string;
     size: string;
   };
-  const allParams = useParams();
-  console.log("all params", allParams);
+
   const dispatch = useAppDispatch();
   const { pizzas, isLoading } = useAppSelector((state) => state.data);
   const currentPizza = pizzas.find((pizza) => pizza.id === Number(id!));
 
   const [typeOption, setTypeOption] = useState(+type);
   const [sizeOption, setSizeOption] = useState(+size);
-  // const [typeOption, setTypeOption] = useState(currentPizza?.types[0] ?? 0);
-  // const [sizeOption, setSizeOption] = useState(currentPizza?.sizes[0] ?? 26);
+
+  const { items } = useAppSelector((state) => state.cart);
+  const curentPizzaInTheCart = items.find(
+    (item) => item.id === +id && item.sizeOption === sizeOption && item.typeOption === typeOption
+  );
+  // console.log("curentPizzaInTheCart", curentPizzaInTheCart);
 
   useEffect(() => {
     dispatch(fetchData({ filterQuery: "", sortQuery: "" }));
@@ -52,7 +54,7 @@ function PizzaPage() {
     );
 
   if (!currentPizza) {
-    return <div>Товар не знайдено</div>;
+    return <p>Product not found</p>;
   }
   const { id: pizzaId, imageUrl, name, sizes, price, types, quantity, ingredients } = currentPizza;
   const priceWithType = calculatePizzaPriceByType(price, typeLabels[typeOption], types);
@@ -105,6 +107,7 @@ function PizzaPage() {
             }}
           >
             Add to cart
+            <i>{curentPizzaInTheCart ? curentPizzaInTheCart.quantity : 0}</i>
           </ButtonAddToCart>
         </div>
       </div>

@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { PizzaDataType } from "../../app/types";
 
+const apiURL = "https://67f176fec733555e24ad443e.mockapi.io";
+
 type DataStateType = {
   pizzas: PizzaDataType[];
   isLoading: boolean;
@@ -30,9 +32,9 @@ type determineQueryStringType = {
   sortQuery: string;
 };
 function makeQueryString({ filterQuery, sortQuery }: determineQueryStringType) {
-  if (filterQuery && sortQuery) return `https://67f176fec733555e24ad443e.mockapi.io/items?${filterQuery}&${sortQuery}`;
-  else if (!filterQuery && sortQuery) return `https://67f176fec733555e24ad443e.mockapi.io/items?${sortQuery}`;
-  else return `https://67f176fec733555e24ad443e.mockapi.io/items`;
+  if (filterQuery && sortQuery) return `${apiURL}/items?${filterQuery}&${sortQuery}`;
+  else if (!filterQuery && sortQuery) return `${apiURL}/items?${sortQuery}`;
+  else return `${apiURL}/items`;
 }
 
 export const fetchData = createAsyncThunk<PizzaDataType[], fetchDataParamsType, { rejectValue: string }>(
