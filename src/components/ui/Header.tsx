@@ -1,9 +1,5 @@
 import { Link } from "react-router-dom";
 import CartBtn from "../card/CartBtn";
-// import CartBtn from "./CartBtn";
-// import SearchInput from "./SearchInput";
-
-// import { IoMenu } from "react-icons/io5";
 
 function Header() {
   return (
@@ -14,19 +10,12 @@ function Header() {
             <img width="38" src="/pizza-logo.svg" alt="Pizza logo" />
             <div>
               <h1>React Pizza</h1>
-              <p>
-                {/* <p className="hidden md:block"> */}
-                the most delicious pizza in the universe
-              </p>
+              <p>the most delicious pizza in the universe</p>
             </div>
           </div>
         </Link>
         {/* <SearchInput /> */}
         <CartBtn />
-
-        {/* <span className="md:hidden block">
-               <IoMenu className="w-8 h-8" />
-            </span> */}
       </div>
     </header>
   );

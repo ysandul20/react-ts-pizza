@@ -40,7 +40,6 @@ function PizzaPage() {
   const curentPizzaInTheCart = items.find(
     (item) => item.id === +id && item.sizeOption === sizeOption && item.typeOption === typeOption
   );
-  // console.log("curentPizzaInTheCart", curentPizzaInTheCart);
 
   useEffect(() => {
     dispatch(fetchData({ filterQuery: "", sortQuery: "" }));

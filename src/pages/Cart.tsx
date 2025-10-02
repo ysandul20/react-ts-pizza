@@ -1,10 +1,9 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaCartShopping, FaTrash } from "react-icons/fa6";
-import { FaShoppingCart, FaTrashAlt } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
 import CartItem from "../components/card/CartItem";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { cleanCart } from "../features/cart/cartSlice";
-import { SlClose } from "react-icons/sl";
 import { IoPizza } from "react-icons/io5";
 import ButtonFullfilled from "../components/ui/ButtonFullfilled";
 import { IoIosCloseCircle } from "react-icons/io";

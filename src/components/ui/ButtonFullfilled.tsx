@@ -1,5 +1,3 @@
-import { FaPlus } from "react-icons/fa6";
-
 type ButtonProps = {
   children: React.ReactNode;
   onClick: () => void;
