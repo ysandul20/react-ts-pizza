@@ -20,7 +20,7 @@ function CartItem({ cartItemData }: CartItemProps) {
     <div className="cart__item">
       <div className="cart__item-description" onClick={() => navigate(`/pizza/${id}/${sizeOption}/${typeOption}`)}>
         <div className="cart__item-img">
-          <img className="pizza-block__image" src={`src/assets/images/${imageUrl}`} alt="Pizza" />
+          <img className="pizza-block__image" src={`/images/${imageUrl}`} alt="Pizza" />
         </div>
         <div className="cart__item-info">
           <h3>{name}</h3>

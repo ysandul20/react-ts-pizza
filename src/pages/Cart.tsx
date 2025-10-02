@@ -38,7 +38,7 @@ function Cart() {
           <div className="cart__empty">
             <h2>Your cart is empty</h2>
             <p>Looks like you haven’t added any pizzas yet.</p>
-            <img src="src/assets/images/empty-cart.png" alt="empty cart" />
+            <img src="/images/empty-cart.png" alt="empty cart" />
             <ButtonFullfilled onClick={() => navigate("/")}>
               <IoPizza />
               <p>Go to menu</p>

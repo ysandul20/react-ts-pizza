@@ -62,7 +62,7 @@ function PizzaPage() {
     <div className="pizza-page container">
       {/* Left side: Image */}
       <div className="pizza-page__image">
-        <img src={`/src/assets/images/${imageUrl}`} alt="Назва піци" />
+        <img src={`/images/${imageUrl}`} alt="Назва піци" />
       </div>
 
       {/* Right side: Details */}
